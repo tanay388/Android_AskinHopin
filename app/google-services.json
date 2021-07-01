@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "410171667633",
+    "project_id": "askinhopin",
+    "storage_bucket": "askinhopin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:410171667633:android:ad15a6bc65a1bd358e9e90",
+        "android_client_info": {
+          "package_name": "com.askinhopin.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "410171667633-ktbitlfe1fog0gode866kriimjc7es8j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.askinhopin.app",
+            "certificate_hash": "2eeca955292d8a8b5c411fd31195c68c2d385525"
+          }
+        },
+        {
+          "client_id": "410171667633-acom0k0tn7samnb3qtqnkl1jmcdufo6b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABqpqLXzcXG8NifTWJ9NIf-m6pbcBupVs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "410171667633-acom0k0tn7samnb3qtqnkl1jmcdufo6b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

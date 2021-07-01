@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".WriteAnswer">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp"
+        app:cardBackgroundColor="@color/white"
+        tools:ignore="MissingConstraints">
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            android:id="@+id/ib_back_writeans"
+            android:layout_margin="10dp"
+            android:layout_gravity="left|center_vertical"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Write Your Answer"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:background="@drawable/coustom_box"
+            android:backgroundTint="@color/text_color2"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
+            android:textSize="20sp"/>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="right|center_vertical"
+            android:layout_height="wrap_content">
+            <ProgressBar
+                android:visibility="invisible"
+                android:id="@+id/progressbar_writeanswer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:progressTint="@color/text_color2"/>
+            <TextView
+                android:id="@+id/b_post_writeans"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:drawableEnd="@drawable/ic_baseline_save_24"
+                android:text="Post"
+                android:drawablePadding="10dp"
+                android:background="@drawable/coustom_box"
+                android:backgroundTint="@color/text_color"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="4dp" />
+        </FrameLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="30dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Write your answer *"
+                android:textSize="19sp"
+                />
+            <EditText
+                android:id="@+id/et_title_writeans"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:textColor="@color/text_color"
+                android:background="@drawable/counstom_input_background"
+                android:hint="Write your answer here..."/>
+
+
+
+            <CheckBox
+                android:id="@+id/cb_anonymous_writeans"
+                android:layout_marginTop="28dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:text="Answer Anonymously. (Cannot be edited later)"/>
+
+            <CheckBox
+                android:id="@+id/cb_tnc_writeans"
+                android:layout_marginTop="28dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:textSize="16dp"
+                android:text="By answering this question, you agreed to the Terms of Service and Privacy Policy. *"/>
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".AskQuestion">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp"
+        app:cardBackgroundColor="@color/white"
+        tools:ignore="MissingConstraints">
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            android:id="@+id/ib_back_aq"
+            android:layout_margin="10dp"
+            android:layout_gravity="left|center_vertical"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ask Question"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:background="@drawable/coustom_box"
+            android:backgroundTint="@color/text_color2"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/b_post_aq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:drawableEnd="@drawable/ic_baseline_save_24"
+            android:text="Post"
+            android:drawablePadding="10dp"
+            android:background="@drawable/coustom_box"
+            android:backgroundTint="@color/text_color"
+            android:layout_gravity="right|center_vertical"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            android:layout_marginRight="10dp" />
+
+    </androidx.cardview.widget.CardView>
+    <ProgressBar
+        android:id="@+id/progressbar_aq"
+        android:indeterminate="true"
+        android:layout_marginTop="-11dp"
+        android:indeterminateTint="@color/purple_500"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="30dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Title *"
+                android:textSize="19sp"
+                />
+            <EditText
+                android:id="@+id/et_title_aq"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:inputType="text"
+                android:textColor="@color/text_color"
+                android:background="@drawable/counstom_input_background"
+                android:hint="Enter a title for your question"/>
+
+            <TextView
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Discription *"
+                android:textSize="19sp"
+                />
+            <EditText
+                android:id="@+id/et_discription_aq"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:textColor="@color/text_color"
+                android:background="@drawable/counstom_input_background"
+                android:hint="Enter a title for your question"/>
+
+
+            <TextView
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Choose A Category *"
+                android:textSize="19sp"
+                />
+            <Spinner
+                android:id="@+id/spinner_category_aq"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tags "
+                android:textSize="19sp"
+                />
+            <EditText
+                android:id="@+id/tags_aq"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:inputType="text"
+                android:textColor="@color/text_color"
+                android:background="@drawable/counstom_input_background"
+                android:hint="Tags "/>
+            <TextView
+                android:gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="(Separate tags with , i.e. tag1, tag2, tag3)"
+                android:textSize="16sp"
+                />
+
+            <CheckBox
+                android:id="@+id/cb_anonymous_aq"
+                android:layout_marginTop="28dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:text="Ask Anonymously. (Cannot be edited later)"/>
+            <CheckBox
+                android:id="@+id/cb_tnc_aq"
+                android:layout_marginTop="28dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:textSize="16dp"
+                android:text="By asking your question, you agreed to the Terms of Service and Privacy Policy. *"/>
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

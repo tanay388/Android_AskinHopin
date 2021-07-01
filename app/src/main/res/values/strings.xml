@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">AskinHopin</string>
+    <string-array name="institution_name">
+        <item>Choose your Institution:</item>
+        <item>BIT Sindri</item>
+        <item>BNS DAV Public School</item>
+
+    </string-array>
+
+    <string-array name="branch_name">
+        <item>Select Branch:</item>
+        <item>Computer Science</item>
+        <item>Information Technology</item>
+        <item>Electrical Engineering</item>
+        <item>Production Engineering</item>
+        <item>Mechanical Engineering</item>
+        <item>Chemical Engineering</item>
+        <item>ECE</item>
+        <item>Metallurgy</item>
+        <item>Civil</item>
+    </string-array>
+
+    <string name="answer_add_string">has answered your Question</string>
+</resources>

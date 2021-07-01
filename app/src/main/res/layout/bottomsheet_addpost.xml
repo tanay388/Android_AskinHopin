@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingHorizontal="20dp"
+    android:paddingBottom="24dp"
+    android:orientation="vertical">
+    <TableRow
+        android:layout_width="100dp"
+        android:layout_height="5dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/coustom_box"
+        android:backgroundTint="@color/text_color2"
+        android:layout_marginBottom="24dp"/>
+
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_pen_svgrepo_com"/>
+        <TextView
+            android:clickable="true"
+            android:id="@+id/feeds_bs_addpost"
+            android:layout_marginStart="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Feeds"
+            android:textSize="24dp"
+            android:textColor="@color/text_color"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginVertical="5dp"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_blogger_svgrepo_com"/>
+        <TextView
+            android:clickable="true"
+            android:id="@+id/Blogs_bs_addpost"
+            android:layout_marginStart="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Blogs"
+            android:textSize="24dp"
+            android:textColor="@color/text_color"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_newspaper_news_svgrepo_com"/>
+        <TextView
+            android:clickable="true"
+            android:id="@+id/news_bs_addpost"
+            android:layout_marginStart="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="News"
+            android:textSize="24dp"
+            android:textColor="@color/text_color"/>
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>
