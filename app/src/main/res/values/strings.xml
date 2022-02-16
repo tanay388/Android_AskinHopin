@@ -2,6 +2,7 @@
     <string name="app_name">AskinHopin</string>
     <string-array name="institution_name">
         <item>Choose your Institution:</item>
+        <item>Athena Square</item>
         <item>BIT Sindri</item>
         <item>BNS DAV Public School</item>
 

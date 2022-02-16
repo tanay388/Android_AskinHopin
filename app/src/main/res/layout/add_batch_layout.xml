@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:elevation="3dp"
+    android:layout_margin="16dp"
+    android:padding="16dp"
+    android:background="@color/white">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add New Batch"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/text_color"
+        android:paddingHorizontal="10dp"
+        android:textStyle="bold"
+        android:paddingVertical="4dp"
+        android:textSize="26sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginTop="20dp"
+        android:padding="6dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_weight="4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Type * : "
+            android:textSize="18sp"/>
+        <RadioGroup
+            android:id="@+id/selection_type_add_batch_layout"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/skill_add_batch_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Skill"/>
+            <RadioButton
+                android:id="@+id/achivement_add_batch_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Award"/>
+
+            <RadioButton
+                android:id="@+id/job_add_batch_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jobs"/>
+
+        </RadioGroup>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Describe * : "
+        android:textSize="18sp"/>
+
+    <EditText
+        android:id="@+id/detail_add_batch_layout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginVertical="8dp"
+        android:background="@drawable/counstom_input_background"
+        android:padding="6dp"
+        android:drawableStart="@drawable/ic_baseline_edit_24"
+        android:drawablePadding="6dp"
+        android:hint="Professional Bio *"/>
+
+
+
+</LinearLayout>

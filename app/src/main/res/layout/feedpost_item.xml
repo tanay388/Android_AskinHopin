@@ -75,11 +75,11 @@
                 android:id="@+id/tv_disc_feedpost_item"
                 android:autoLink="web"
                 android:layout_marginHorizontal="4dp"
-                android:layout_marginBottom="4dp"
+                android:layout_marginBottom="18dp"
                 android:linksClickable="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="16dp"
+                android:textSize="18dp"
                 android:textColor="@color/text_color"
                 android:textColorLink="@color/text_color2"/>
             <androidx.cardview.widget.CardView

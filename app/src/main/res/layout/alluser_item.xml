@@ -48,6 +48,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:maxLines="4"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rv_batch_alluser_item">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
     <Button
         android:id="@+id/b_sendmessage_alluser_item"

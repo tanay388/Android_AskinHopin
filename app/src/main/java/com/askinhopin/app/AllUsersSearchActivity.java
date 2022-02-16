@@ -1,6 +1,7 @@
 package com.askinhopin.app;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.paging.PagedList;
@@ -33,6 +34,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -44,7 +46,10 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
+import java.util.Locale;
 
 public class AllUsersSearchActivity extends AppCompatActivity {
 
@@ -155,6 +160,44 @@ public class AllUsersSearchActivity extends AppCompatActivity {
                 String batch_str= model.getBranch() + " | " + model.getBatch();
 
                 holder.setUsers(model.getUid(), model.getName(), batch_str, model.getBio(), model.getImgurl());
+                LinearLayoutManager horizontalLayoutManager = new LinearLayoutManager(AllUsersSearchActivity.this, RecyclerView.HORIZONTAL, false);
+                holder.rv_batch_alluser_item.setLayoutManager(horizontalLayoutManager);
+
+                List<BatchModel> batchModelList = new ArrayList<>();
+
+                DatabaseReference batchRef = databaseReference.child("Batches").child(model.getUid());
+
+                batchRef.addChildEventListener(new ChildEventListener() {
+                    @Override
+                    public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                        BatchModel batchModelChild = snapshot.getValue(BatchModel.class);
+                        batchModelList.add(batchModelChild);
+                        BatchHorizontalAdaptar batchHorizontalAdaptar = new BatchHorizontalAdaptar(batchModelList);
+                        holder.rv_batch_alluser_item.setAdapter(batchHorizontalAdaptar);
+                        batchHorizontalAdaptar.notifyDataSetChanged();
+                    }
+
+                    @Override
+                    public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                    }
+
+                    @Override
+                    public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+                    }
+
+                    @Override
+                    public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
 
                 holder.tv_name_allUsers_item.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -272,12 +315,13 @@ public class AllUsersSearchActivity extends AppCompatActivity {
 
     }
 
+
     private void filter(String s){
         progressbar_allUsers.setVisibility(View.VISIBLE);
         databaseReference = database.getReference().child(school).child("user");
         databaseReference.keepSynced(true);
 
-        Query reverseQuery = databaseReference.orderByChild("name").startAt(s.toUpperCase()).endAt(s.toUpperCase()+ "~");
+        Query reverseQuery = databaseReference.orderByChild("name").startAt(s.toUpperCase()).endAt(s.toLowerCase()+ "~");
         FirebaseRecyclerOptions<ProfileUser> options = new FirebaseRecyclerOptions.Builder<ProfileUser>()
                 .setQuery(reverseQuery, ProfileUser.class)
                 .build();

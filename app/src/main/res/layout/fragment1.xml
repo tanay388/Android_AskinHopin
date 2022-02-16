@@ -123,7 +123,7 @@
                     android:id="@+id/b_Addpost_f1"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
-                    android:text="Add Post"
+                    android:text="Share Your Project"
                     android:backgroundTint="@color/text_color2"
                     android:textColor="@color/white"
                     android:textAllCaps="false"/>

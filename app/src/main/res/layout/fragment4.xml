@@ -51,7 +51,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="wrap_content"
         android:paddingBottom="10dp"
         android:orientation="horizontal"
         android:background="@color/white">
@@ -97,7 +97,10 @@
                 android:textAlignment="viewStart"
                 android:textColor="@color/gray"
                 android:gravity="start"/>
-
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rv_batch_f4"/>
 
         </LinearLayout>
     </LinearLayout>
@@ -117,8 +120,12 @@
 
    <ScrollView
        android:layout_width="match_parent"
-       android:layout_marginHorizontal="16dp"
-       android:layout_height="380dp">
+       android:layout_height="match_parent">
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:orientation="vertical">
        <LinearLayout
            android:layout_width="match_parent"
            android:layout_height="match_parent"
@@ -220,93 +227,121 @@
                android:layout_marginEnd="20dp"/>
 
        </LinearLayout>
+
+           <TextView
+               android:background="@android:color/darker_gray"
+               android:layout_marginTop="40dp"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginBottom="2dp"
+               android:text="PRIMARY DETAILS"
+               android:paddingVertical="5dp"
+               android:paddingStart="20dp"
+               android:textSize="18sp"
+               android:textAlignment="viewStart"
+               android:textColor="@color/black"
+               android:gravity="start"/>
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical">
+           <Button
+               android:id="@+id/add_batch_f4"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Add a Batch"
+               android:backgroundTint="@color/text_color2"
+               android:layout_gravity="center"/>
+       </LinearLayout>
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+           android:gravity="center_horizontal"
+           android:layout_marginTop="16dp">
+
+           <ImageButton
+               android:layout_width="40dp"
+               android:layout_height="wrap_content"
+               android:background="@color/transparent"
+               android:src="@drawable/ic_baseline_facebook_24"
+               android:tint="@color/text_color2"
+               android:id="@+id/ib_fb_f4"
+               android:layout_margin="10dp"
+               android:layout_gravity="left|center_vertical"/>
+           <ImageButton
+               android:layout_width="40dp"
+               android:layout_height="wrap_content"
+               android:background="@color/transparent"
+               android:src="@drawable/instagram"
+               android:id="@+id/ib_insta_f4"
+               android:layout_margin="10dp"
+               android:layout_gravity="left|center_vertical"/>
+           <ImageButton
+               android:layout_width="40dp"
+               android:layout_height="wrap_content"
+               android:background="@color/transparent"
+               android:src="@drawable/twitter"
+               android:id="@+id/ib_twitter_f4"
+               android:layout_margin="10dp"
+               android:layout_gravity="left|center_vertical"/>
+           <ImageButton
+               android:layout_width="40dp"
+               android:layout_height="wrap_content"
+               android:background="@color/transparent"
+               android:src="@drawable/linkedin"
+               android:id="@+id/ib_linkedin_f4"
+               android:layout_margin="10dp"
+               android:layout_gravity="left|center_vertical"/>
+           <ImageButton
+               android:layout_width="40dp"
+               android:layout_height="wrap_content"
+               android:background="@color/transparent"
+               android:src="@drawable/ic_baseline_public_24"
+               android:id="@+id/ib_web_f4"
+               android:layout_margin="10dp"
+               android:layout_gravity="left|center_vertical"/>
+
+       </LinearLayout>
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+           android:gravity="center_horizontal"
+           android:layout_marginTop="10dp">
+
+           <TextView
+               android:id="@+id/tv_followers_f4"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="ClassRooms"
+               android:padding="5dp"
+               android:textSize="16sp"
+               android:drawableStart="@drawable/ic_baseline_followers_24"
+               android:drawablePadding="5dp"
+               android:layout_gravity="center_vertical"
+               android:clickable="true"
+               android:textColor="@color/text_color2"/>
+           <TextView
+               android:layout_marginStart="10dp"
+               android:id="@+id/tv_post_f4"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Community"
+               android:padding="5dp"
+               android:textSize="16sp"
+               android:drawableStart="@drawable/ic_baseline_person_24"
+               android:drawableTint="@color/text_color2"
+               android:drawablePadding="5dp"
+               android:layout_gravity="center_vertical"
+               android:clickable="true"
+               android:textColor="@color/text_color2"/>
+
+
+       </LinearLayout>
+       </LinearLayout>
    </ScrollView>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="16dp">
-
-        <ImageButton
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:background="@color/transparent"
-            android:src="@drawable/ic_baseline_facebook_24"
-            android:tint="@color/text_color2"
-            android:id="@+id/ib_fb_f4"
-            android:layout_margin="10dp"
-            android:layout_gravity="left|center_vertical"/>
-        <ImageButton
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:background="@color/transparent"
-            android:src="@drawable/instagram"
-            android:id="@+id/ib_insta_f4"
-            android:layout_margin="10dp"
-            android:layout_gravity="left|center_vertical"/>
-        <ImageButton
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:background="@color/transparent"
-            android:src="@drawable/twitter"
-            android:id="@+id/ib_twitter_f4"
-            android:layout_margin="10dp"
-            android:layout_gravity="left|center_vertical"/>
-        <ImageButton
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:background="@color/transparent"
-            android:src="@drawable/linkedin"
-            android:id="@+id/ib_linkedin_f4"
-            android:layout_margin="10dp"
-            android:layout_gravity="left|center_vertical"/>
-        <ImageButton
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:background="@color/transparent"
-            android:src="@drawable/ic_baseline_public_24"
-            android:id="@+id/ib_web_f4"
-            android:layout_margin="10dp"
-            android:layout_gravity="left|center_vertical"/>
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="10dp">
-
-        <TextView
-            android:id="@+id/tv_followers_f4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="followers"
-            android:padding="5dp"
-            android:textSize="16sp"
-            android:drawableStart="@drawable/ic_baseline_followers_24"
-            android:drawablePadding="5dp"
-            android:layout_gravity="center_vertical"
-            android:clickable="true"
-            android:textColor="@color/text_color2"/>
-        <TextView
-            android:layout_marginStart="10dp"
-            android:id="@+id/tv_post_f4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="posts"
-            android:padding="5dp"
-            android:textSize="16sp"
-            android:drawableStart="@drawable/ic_baseline_posts_setup_24"
-            android:drawablePadding="5dp"
-            android:layout_gravity="center_vertical"
-            android:clickable="true"
-            android:textColor="@color/text_color2"/>
-
-
-    </LinearLayout>
 
 
 

@@ -1,7 +1,10 @@
 package com.askinhopin.app;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -20,6 +23,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -30,6 +34,9 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PublicUserProfileView extends AppCompatActivity {
     ImageView iv_back_allprofile, iv_dp_allprofile, iv_fb_allprofile, iv_insta_allprofile, iv_linkedin_allprofile, iv_twitter_allprofile;
     TextView tv_nameuser_allprofile, tv_batch_allprofile, tv_noOfPost_allprofile, tv_bio_allprofile, tv_noOfQuestions_allprofile, tv_phone_allprofile,
@@ -39,10 +46,11 @@ public class PublicUserProfileView extends AppCompatActivity {
     ProgressBar progressbar_allprofile;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference databaseReference;
+    DatabaseReference databaseReference = database.getReference();
     String fbResult, instaResult, linkedinResult, twitterResult, webResult;
     ScrollView scrollview_allprofile;
     LinearLayout ll_phone_allprofile, ll_web_allprofile, ll_questionsholder_allprofile, ll_postholder_allprofile;
+    RecyclerView rv_batch_allprofile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +77,7 @@ public class PublicUserProfileView extends AppCompatActivity {
         ll_web_allprofile = findViewById(R.id.ll_web_allprofile);
         ll_questionsholder_allprofile = findViewById(R.id.ll_questionsholder_allprofile);
         ll_postholder_allprofile = findViewById(R.id.ll_postholder_allprofile);
+        rv_batch_allprofile = findViewById(R.id.rv_batch_allprofile);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         currentuid = user.getUid();
@@ -77,6 +86,12 @@ public class PublicUserProfileView extends AppCompatActivity {
         if(extra != null){
             currentuid = extra.getString("uid");
         }
+
+        LinearLayoutManager horizontalLayoutManager = new LinearLayoutManager(PublicUserProfileView.this, RecyclerView.HORIZONTAL, false);
+        rv_batch_allprofile.setLayoutManager(horizontalLayoutManager);
+
+        List<BatchModel> batchModelList = new ArrayList<>();
+        setBatches(batchModelList, currentuid);
 
         documentReference = db.collection("user").document(currentuid);
         databaseReference = database.getReference();
@@ -168,6 +183,45 @@ public class PublicUserProfileView extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void setBatches(List<BatchModel> batchModelList, String currentuid) {
+        DatabaseReference batchRef = databaseReference.child("Batches").child(currentuid);
+        batchRef.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                BatchModel batchModelChild = snapshot.getValue(BatchModel.class);
+                batchModelList.add(batchModelChild);
+//                Toast.makeText(getActivity(), "" + batchModelChild.getBatchDesc(), Toast.LENGTH_SHORT).show();
+
+
+                BatchHorizontalAdaptar batchHorizontalAdaptar = new BatchHorizontalAdaptar(batchModelList);
+
+
+                rv_batch_allprofile.setAdapter(batchHorizontalAdaptar);
+                batchHorizontalAdaptar.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     @Override
